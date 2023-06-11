@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap CDN-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <!-- Roboto Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500&display=swap"
+        rel="stylesheet">
+
+    <!-- External Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+    <header>
+        <h1 class="heading">rock paper scissors</h1>
+    </header>
+    <section class="container-fluid">
+        <div class="format  sections">
+            <h2>Format</h2>
+            <select name="series" id="series">
+                <option disabled >Choose Series Format</option>
+                <option value="1">Single Match</option>
+                <option value="3" selected>Best of Three</option>
+                <option value="5">Best of Five</option>
+                <option value="7">Best of Seven</option>
+            </select>
+        </div>
+        <hr>
+        <div class="match sections">
+            <h2>Start here</h2>
+            <div class="buttons-box ">
+                <button type="button" class="button rock col-4" data-id="0">
+                    <img src="./icomoon/bronze.png" alt="rock">
+                </button>
+                <button type="button" class="button paper col-4" data-id="1">
+                    <svg class="paper__icon icon">
+                        <use xlink:href="icomoon/sprite.svg#icon-news"></use>
+                    </svg>
+                </button>
+                <button type="button" class="button scissors col-4" data-id="2">
+                    <svg class="scissors__icon icon">
+                        <use xlink:href="icomoon/sprite.svg#icon-edit-cut"></use>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <hr>
+        <div class="scorecard sections">
+            <h2>Scorecard</h2>
+            <h4 class="score"><span class="userScore">0</span>:<span class="compScore">0</span></h4>
+        </div>
+    </section>
+<footer id="footer">
+    <div class="result">
+        <h1>Start your game to get result</h1>
+    </div>
+</footer>
+    <!-- JS Bootstrap CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <!-- External JS -->
+    <script src="index.js" charset="utf-8"></script>
+
+</body>
+
+</html>

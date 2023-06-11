@@ -1,0 +1,152 @@
+*, 
+::after,
+::before{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-size: 62.5%; /*1rem = 10px*/
+}
+body{
+    background-color: #eee;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+li{
+    list-style: none;
+}
+a,
+a:active,
+a:link{
+    text-decoration: none;
+    color: inherit;
+}
+button, button:active, button:focus{
+    border: none;
+}
+
+/* Header */
+header{
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #C4DFDF;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+}
+.heading{
+    font-size: 3.6rem;
+    text-transform: capitalize;
+}
+/* Container */
+.container-fluid{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    text-align: center;
+}
+
+.sections{
+    padding: 2rem;
+    display: grid;
+    align-items: start;
+}
+h2{
+    font-size: 2.8rem;
+    margin-bottom: 2rem;
+}
+/* Format Section */
+
+select{
+    height: 3.5rem;
+    width: 20%;
+    margin:  -0.5rem auto auto;
+    text-align: center;
+    font-size: 1.8rem;
+    border: 1px solid #000;
+    outline: none;
+}
+.select:active,
+.select:focus{
+    border: 1px solid #000;
+    outline: none;
+}
+
+/* Match section */
+.buttons-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    place-items: center;
+} 
+img{
+    width: 100%;
+}
+.button{
+    height: auto;
+    cursor: pointer;
+}
+.icon{
+    width: 100%;
+}
+/* Scorecard */
+h4{
+    font-size: 4.8rem;
+}
+/* Footer */
+footer{
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #C4DFDF;
+    box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+}
+
+
+/* Media query */
+@media only screen and(max-width: 800px) {
+    select{
+        width: 55%;
+    }
+}
+@media only screen and (max-width: 600px) {
+
+    html{
+        font-size: 50%;
+    }
+    header{
+        padding: 1rem 0;
+    }
+    .heading{
+        font-size: 2.8rem;
+    }
+    .sections{
+        padding: 1rem;
+    }
+    
+    select{
+        width: 70%;
+    }
+    .buttons-box{
+        gap: 1rem;
+    }
+    .button{
+        width: 50%;
+    }
+    footer{
+        padding: 1rem 0;
+    }
+}
+@media only screen and(max-width: 480px) {
+    .button{
+        width: 50%;
+    }
+}
+.trail{
+    background-color: red;
+}
+.lead{
+    background-color: green;
+}
