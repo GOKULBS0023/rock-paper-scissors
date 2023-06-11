@@ -3,7 +3,7 @@ const userScoreEl = document.querySelector(".userScore");
 const compScoreEl = document.querySelector(".compScore");
 const resultEl = document.querySelector(".result");
 const scorecardEl = document.querySelector(".score");
-const buttonsBoxEL = document.querySelector("button");
+const headerEl = document.querySelector("header");
 
 const items = ["rock", "paper", "scissors"];
 
@@ -19,6 +19,8 @@ const seriesEl = document.querySelector("#series");
 
 
 function updateScore() {
+    headerEl.classList.remove("lead");
+    headerEl.classList.remove("trail");
     userScoreEl.innerText = userScore;
     compScoreEl.innerText = compScore;
 
@@ -74,15 +76,17 @@ buttons.forEach((btn) => {
 
 function endMatch() {
     if (userScore > compScore) {
-        resultEl.innerHTML = `<h1>You won comp by ${userScore - compScore}</h1>`;
+        resultEl.innerHTML = `<h1>You won comp by ${userScore - compScore}. Play again to win more!!</h1>`;
         resultEl.parentElement.classList.remove("trail");
         resultEl.parentElement.classList.add("lead");
+        headerEl.classList.add("lead");
     } else if (compScore > userScore) {
-        resultEl.innerHTML = `<h1>You lost to comp by ${compScore - userScore}</h1>`;
+        resultEl.innerHTML = `<h1>You lost to comp by ${compScore - userScore}. Better luck next time</h1>`;
         resultEl.parentElement.classList.remove("lead");
         resultEl.parentElement.classList.add("trail");
+        headerEl.classList.add("trail");
     } else {
-        resultEl.innerHTML = `<h1>Match draw</h1>`;
+        resultEl.innerHTML = `<h1>Match draw!! Play again to win!!</h1>`;
         resultEl.parentElement.classList.remove("lead");
         resultEl.parentElement.classList.remove("trail");
     }
