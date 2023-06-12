@@ -19,6 +19,7 @@ let userScore = 0;
 let compScore = 0;
 let numMatches = 3;
 let matchPlayed = 0;
+let isFunctionRunning = false;
 
 const seriesEl = document.querySelector("#series");
 
@@ -72,69 +73,73 @@ seriesEl.addEventListener("change", (e) => {
 });
 
 buttons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-        const userItem = parseInt(btn.getAttribute("data-id"));
-        const randomItem = Math.floor(Math.random() * 3);
-        const userClickItem = btn;
-        const randomSelectedItem = document.querySelector(`[data-id="${randomItem}"]`);
+    if (!isFunctionRunning) {
+        btn.addEventListener("click", () => {
+            isFunctionRunning = true;
+            const userItem = parseInt(btn.getAttribute("data-id"));
+            const randomItem = Math.floor(Math.random() * 3);
+            const userClickItem = btn;
+            const randomSelectedItem = document.querySelector(`[data-id="${randomItem}"]`);
 
-        console.log(userClickItem);
-        console.log(randomSelectedItem);
-        buttons.forEach(function (button) {
-            button.classList.add('animate');
+            console.log(userClickItem);
+            console.log(randomSelectedItem);
+            buttons.forEach(function (button) {
+                button.classList.add('animate');
+            });
+
+            userClickItem.classList.add('animate');
+
+            randomSelectedItem.classList.add('animate');
+
+            setTimeout(function () {
+                if (userItem === randomItem) {
+                    userScore++;
+                    compScore++;
+                    randomSelectedItem.style.fill = "green";
+                    userClickItem.style.fill = "green";
+                    start.innerText = "Both got the point";
+                } else if ((userItem === 0 && randomItem == 1) || (userItem === 1 && randomItem === 2) || (userItem === 2 && randomItem == 0)) {
+                    compScore++;
+                    randomSelectedItem.style.fill = "green";
+                    userClickItem.style.fill = "red";
+                    start.innerText = "Comp got a point";
+                } else {
+                    userScore++;
+                    randomSelectedItem.style.fill = "red";
+                    userClickItem.style.fill = "green";
+                    start.innerText = "You got a point";
+                }
+                buttons.forEach(function (button) {
+                    button.style.display = 'none';
+                    button.disabled = true;
+                });
+                userClickItem.parentNode.insertBefore(userClickItem, randomSelectedItem);
+                userClickItem.style.display = 'block';
+                randomSelectedItem.style.display = 'block';
+                userClickItem.classList.remove('animate');
+                randomSelectedItem.classList.remove('animate');
+                updateScore();
+                matchPlayed++;
+                numMatches;
+                if (numMatches === matchPlayed) {
+                    endMatch();
+                }
+            }, 500);
+            setTimeout(function () {
+                buttons.forEach(function (button) {
+                    button.disabled = false;
+                    start.innerText = "Click to play again";
+                    buttonsBox.appendChild(button);
+                    randomSelectedItem.style.fill = "black";
+                    userClickItem.style.fill = "black";
+                    button.style.display = 'block';
+                    button.classList.remove('animate');
+                    isFunctionRunning = false;
+                });
+            }, 4000);
+
         });
-
-        userClickItem.classList.add('animate');
-
-        randomSelectedItem.classList.add('animate');
-
-        setTimeout(function () {
-            if (userItem === randomItem) {
-                userScore++;
-                compScore++;
-                randomSelectedItem.style.fill = "green";
-                userClickItem.style.fill = "green";
-                start.innerText = "Both got the point";
-            } else if ((userItem === 0 && randomItem == 1) || (userItem === 1 && randomItem === 2) || (userItem === 2 && randomItem == 0)) {
-                compScore++;
-                randomSelectedItem.style.fill = "green";
-                userClickItem.style.fill = "red";
-                start.innerText = "Comp got a point";
-            } else {
-                userScore++;
-                randomSelectedItem.style.fill = "red";
-                userClickItem.style.fill = "green";
-                start.innerText = "You got a point";
-            }
-            buttons.forEach(function (button) {
-                button.style.display = 'none';
-                button.disabled = true;
-            });
-            userClickItem.parentNode.insertBefore(userClickItem, randomSelectedItem);
-            userClickItem.style.display = 'block';
-            randomSelectedItem.style.display = 'block';
-            userClickItem.classList.remove('animate');
-            randomSelectedItem.classList.remove('animate');
-            updateScore();
-            matchPlayed++;
-            numMatches;
-            if (numMatches === matchPlayed) {
-                endMatch();
-            }
-        }, 500);
-        setTimeout(function () {
-            buttons.forEach(function (button) {
-                button.disabled = false;
-                start.innerText = "Click to play again";
-                buttonsBox.appendChild(button);
-                randomSelectedItem.style.fill = "black";
-                userClickItem.style.fill = "black";
-                button.style.display = 'block';
-                button.classList.remove('animate');
-            });
-        }, 4000);
-
-    });
+    }
 });
 
 function endMatch() {
