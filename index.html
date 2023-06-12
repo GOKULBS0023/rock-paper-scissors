@@ -26,54 +26,68 @@
 </head>
 
 <body>
-    <header>
-        <h1 class="heading">rock paper scissors</h1>
-    </header>
-    <section class="container-fluid">
-        <div class="format  sections">
-            <h2>Format</h2>
-            <select name="series" id="series">
-                <option disabled >Choose Series Format</option>
-                <option value="1">Single Match</option>
-                <option value="3" selected>Best of Three</option>
-                <option value="5">Best of Five</option>
-                <option value="7">Best of Seven</option>
-            </select>
-        </div>
-        <hr>
-        <div class="match sections">
-            <h2>Start here</h2>
-            <div class="buttons-box ">
-                <button type="button" class="button rock col-4" data-id="0">
-                    <img src="./icomoon/bronze.png" alt="rock">
-                </button>
-                <button type="button" class="button paper col-4" data-id="1">
-                    <svg class="paper__icon icon">
-                        <use xlink:href="icomoon/sprite.svg#icon-news"></use>
-                    </svg>
-                </button>
-                <button type="button" class="button scissors col-4" data-id="2">
-                    <svg class="scissors__icon icon">
-                        <use xlink:href="icomoon/sprite.svg#icon-edit-cut"></use>
-                    </svg>
-                </button>
+    <main id="main">
+        <header>
+            <h1 class="heading">rock paper scissors</h1>
+        </header>
+        <section class="container-fluid">
+            <div class="format section">
+                <h2>Format</h2>
+                <select name="series" id="series">
+                    <option disabled>Choose Series Format</option>
+                    <option value="1">Single Match</option>
+                    <option value="3" selected>Best of Three</option>
+                    <option value="5">Best of Five</option>
+                    <option value="7">Best of Seven</option>
+                </select>
             </div>
-        </div>
-        <hr>
-        <div class="scorecard sections">
-            <h2>Scorecard</h2>
-            <h4 class="score"><span class="userScore">0</span>:<span class="compScore">0</span></h4>
-        </div>
-    </section>
-<footer id="footer">
-    <div class="result">
-        <h1>Start your game to get result</h1>
-    </div>
-</footer>
+            <hr>
+            <div class="match section">
+                <div class="start-match">
+                    <h2 class="start">Start here</h2>
+                    <div class="buttons-box">
+                        <svg class="button icon-bronze" data-id="0">
+                            <use xlink:href="images/sprite.svg#icon-bronze"></use>
+                        </svg>
+                        <svg class="button icon-news, paper" data-id="1">
+                            <use xlink:href="images/sprite.svg#icon-news"></use>
+                        </svg>
+                        <svg class="button icon-scissors" data-id="2">
+                            <use xlink:href="images/sprite.svg#icon-scissors"></use>
+                        </svg>
+                    </div>
+                </div>
+                <div class="user-won">
+
+                </div>
+                <div class="comp-won">
+
+                </div>
+                <div class="match-draw">
+                    
+                </div>
+            </div>
+            <hr>
+            <div class="scorecard section">
+                <h2>Scorecard</h2>
+                <div class="score-box">
+                    <h4 class="score"><i class="fa-solid fa-person user-icon"></i>&nbsp;<span class="user-score">0</span>:<span class="comp-score">0</span>&nbsp;<i class="fa-solid fa-laptop comp-icon"></i></h4>
+                </div>
+            </div>
+        </section>
+        <footer id="footer">
+            <div class="result">
+                <h1>Start your game to get result</h1>
+            </div>
+        </footer>
+    </main>
     <!-- JS Bootstrap CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous">
+    </script>
     <!-- Jquery -->
-    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"
+        integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
     <!-- External JS -->
     <script src="index.js" charset="utf-8"></script>
 
