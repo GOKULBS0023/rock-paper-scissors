@@ -132,7 +132,7 @@ buttons.forEach((btn) => {
                 button.style.display = 'block';
                 button.classList.remove('animate');
             });
-        }, 4000);
+        }, 3000);
 
     });
 });
@@ -162,5 +162,5 @@ function endMatch() {
         compScore = 0;
         matchPlayed = 0;
         resetGame();
-    }, 4000);
+    }, 3000);
 }
